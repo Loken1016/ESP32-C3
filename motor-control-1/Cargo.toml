@@ -1,0 +1,29 @@
+[package]
+name = "motor-control-1"
+version = "0.1.0"
+authors = ["loken1016 <alexre0812@gmail.com>"]
+edition = "2021"
+resolver = "2"
+rust-version = "1.77"
+
+[[bin]]
+name = "motor-control-1"
+harness = false # do not use the built-in cargo test harness -> resolve rust-analyzer errors
+
+[profile.release]
+opt-level = "s"
+
+[profile.dev]
+debug = true    # Symbols are nice, and they don't increase the size on Flash
+opt-level = "z"
+
+[features]
+default = []
+
+[dependencies]
+esp-idf-hal = "0.45.2"
+anyhow = "1.0.100"
+
+
+[build-dependencies]
+embuild = "0.33"
